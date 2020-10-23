@@ -1,0 +1,31 @@
+<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+    <div>
+        <input id="multiplication" type="radio" class="custom-control-input" value="multiplication" name="action"
+            ngModel required>
+        <label class="custom-control-label" for="action">Multiplication</label>
+    </div>
+    <div>
+        <input id="addition" type="radio" class="custom-control-input" value="addition" name="action" ngModel required>
+        <label class="custom-control-label" for="action">Addition</label>
+    </div>
+    <div>
+        <input id="modulo" type="checkbox" class="custom-control-input" value="modulo" name="modulo" ngModel>
+        <label class="custom-control-label" for="modulo">Modulo</label>
+        <input id="modulo" type="text" name="moduloValue" ngModel>
+    </div>
+    <div *ngIf="isSubmitted && myForm.invalid">
+        <p>Please select either value</p>
+    </div>
+    <button type="submit" class="btn btn-danger btn-lg btn-block">Calculate</button>
+</form>
+
+
+<div>
+    <table>
+        <tr *ngFor="let row of scoreArray; index as i">
+            <td *ngFor="let col of row; index as j" [ngStyle]="{'background-color': i == 0 || j == 0 ? '#90caf9' : ''}">
+                {{col}}
+            </td>
+        </tr>
+    </table>
+</div>
