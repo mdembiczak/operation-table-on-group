@@ -1,5 +1,4 @@
 # How to deploy on GH
 
-ng build --prod
-
-ng deploy --base-href=/\<project-name\>/
+ng build --prod --base-href "https://username.github.io/app-name/"
+npx angular-cli-ghpages --dir=dist/app-name/
