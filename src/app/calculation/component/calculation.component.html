@@ -13,6 +13,11 @@
         <label class="custom-control-label" for="modulo">Modulo</label>
         <input id="modulo" type="text" name="moduloValue" ngModel>
     </div>
+    <br/>
+    <div>
+        Group (element separator ",") -> example 1,2,3,4<br>
+        <input id=group type="text" name="group" ngModel>
+    </div>
     <div *ngIf="isSubmitted && myForm.invalid">
         <p>Please select either value</p>
     </div>
