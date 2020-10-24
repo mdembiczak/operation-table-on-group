@@ -1,30 +1,42 @@
+Choose action and group (modulo is optionally)<br><br>
 <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+    Action
     <div>
-        <input id="multiplication" type="radio" class="custom-control-input" value="multiplication" name="action"
-            ngModel required>
-        <label class="custom-control-label" for="action">Multiplication</label>
+        <input id="multiplication" type="radio" value="multiplication" name="action" ngModel required>
+        <label for="action">&nbsp;Multiplication</label>
     </div>
     <div>
-        <input id="addition" type="radio" class="custom-control-input" value="addition" name="action" ngModel required>
-        <label class="custom-control-label" for="action">Addition</label>
+        <input id="addition" type="radio" value="addition" name="action" ngModel required>
+        <label for="action">&nbsp;Addition</label>
     </div>
     <div>
-        <input id="modulo" type="checkbox" class="custom-control-input" value="modulo" name="modulo" ngModel>
-        <label class="custom-control-label" for="modulo">Modulo</label>
-        <input id="modulo" type="text" name="moduloValue" ngModel>
+        <input id="modulo" type="checkbox" value="modulo" name="modulo" ngModel>
+        <label for="modulo">&nbsp;Modulo&nbsp;&nbsp;</label>
+        <input id="modulo" type="text" class="form-control" name="moduloValue"
+            placeholder="Fill if you checked 'Modulo'" ngModel>
     </div>
-    <br/>
+    <br />
     <div>
-        Group (element separator ",") -> example 1,2,3,4<br>
-        <input id=group type="text" name="group" ngModel>
+        Group (element separator ",")<br>
+        <input id="group" type="text" name="group" placeholder="1,5,10,15" ngModel><br>
+        or choose predefined Groups<br>
+        <div>
+            <input id="oneToTwenty" type="radio" value="oneToTwenty" name="predefinedGroup" ngModel>
+            <label for="action">&nbsp;[1,2,3,4, ... ,20]</label>
+        </div>
+        <div>
+            <input id="primeNumbers" type="radio" value="primeNumbers" name="predefinedGroup" ngModel>
+            <label for="action">&nbsp;[2,3,5,7, ... ,97]</label>
+        </div>
     </div>
+
     <div *ngIf="isSubmitted && myForm.invalid">
         <p>Please select either value</p>
     </div>
-    <button type="submit" class="btn btn-danger btn-lg btn-block">Calculate</button>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Calculate</button>
 </form>
-
-
+<br>
 <div>
     <table>
         <tr *ngFor="let row of scoreArray; index as i">
