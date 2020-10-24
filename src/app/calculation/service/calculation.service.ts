@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { parse } from "path";
 
 @Injectable({
   providedIn: "root",
